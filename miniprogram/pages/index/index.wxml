@@ -23,7 +23,7 @@
         class="userinfo-avatar"
         style="background-image: url({{avatarUrl}})"
         size="default"
-      ></button>
+      >aaaaa</button>
     </block>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-block-avatar" src="{{avatarUrl}}" mode="cover"></image>

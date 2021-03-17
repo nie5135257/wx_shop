@@ -1,0 +1,121 @@
+<view class="page">
+
+    <!-- 轮播图 -->
+    <swiper indicator-dots="{{true}}"
+        indicator-color=''
+        circular='{{true}}'
+        autoplay="{{true}}" 
+        interval="{{6000}}"
+        duration="{{500}}">
+        <block wx:for="{{bgSrc}}" wx:key="*this">
+            <swiper-item>
+                <image class="ww" mode="widthFix" src="{{item.src}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+
+    <!-- 公告 -->
+    <view>
+        <van-notice-bar
+    left-icon="volume-o"
+    text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"
+    />
+    </view>
+
+    <!-- list -->
+    <view class="list fx">
+        <view class="tc">
+            <image src='cloud://test-shop-4gobl4tb3c799836.7465-test-shop-4gobl4tb3c799836-1305182803/list/taoCan.png' mode="widthFix"></image>
+            <view>汉堡套餐</view>
+        </view>
+        <view class="tc">
+            <image src='cloud://test-shop-4gobl4tb3c799836.7465-test-shop-4gobl4tb3c799836-1305182803/list/hanBao.png' mode="widthFix"></image>
+            <view>汉堡</view>
+        </view>
+        <view class="tc">
+            <image src='cloud://test-shop-4gobl4tb3c799836.7465-test-shop-4gobl4tb3c799836-1305182803/list/zhaJi.png' mode="widthFix"></image>
+            <view>炸鸡</view>
+        </view>
+        <view class="tc">
+            <image src='cloud://test-shop-4gobl4tb3c799836.7465-test-shop-4gobl4tb3c799836-1305182803/list/shuTiao.png' mode="widthFix"></image>
+            <view>薯条</view>
+        </view>
+        <view class="tc">
+            <image src='cloud://test-shop-4gobl4tb3c799836.7465-test-shop-4gobl4tb3c799836-1305182803/list/yinLiao.png' mode="widthFix"></image>
+            <view>饮料</view>
+        </view>
+    </view>
+
+    <!-- 优惠卷 -->
+    <!-- <view class="discounts rds20 ">
+        <view class="fx h60 discounts-top pos-re">
+            <view class="fx wp100 pd10">
+                <view class="">
+                    <view class="ft28" style="color: #555;">满30减20</view>
+                    <view class="ft24" style="color: #9F7F4E;">2020.01.03 - 2020.03.15</view>
+                </view>
+                <view class="fx">
+                    <text class="ft46" style="color: #8D501A;">￥20</text>
+                </view>
+            </view>
+            <view class="discounts-icon pos-ab h20 w20 rds"></view>
+            <view class="discounts-icon1 pos-ab h20 w20 rds"></view>
+            <view class="bd-b dashed pos-ab"></view>
+        </view>
+        
+        <view class="h50 pd-l30 pd-r30 pd-b10 pd-t5">
+           <view class="fx pd10">
+               <view style="color: #9F7F4E;">aaaa</view>
+               <view class="goto">去使用</view>
+           </view>
+        </view>
+    </view> -->
+
+    <!-- 优惠卷盒子 -->
+    <view class="fx fx-js-s fx-wp pd20">
+        <!-- 优惠卷 -->
+        <view class="discounts rds20 mg10" wx:for="{{discountsArr}}" wx:key='index' >
+            <view class="fx fx-js-c h60 discounts-top pos-re">
+                <view class="pd10 tc">
+                    <view class="ft40" style="color: #8D501A;">￥{{item.num}}</view>
+                    <view wx:if="{{item.ts!=''}}" class="ft26 nowrap bold" style="color: #FD6D01;">{{item.ts}}</view>
+                    <view wx:if="{{item.ts==undefined||item.ts==''}}" class="ft26 nowrap" style="color: #555;">满{{item.all}}减{{item.num}}</view>
+                </view>
+                <view class="discounts-icon pos-ab h20 w20 rds"></view>
+                <view class="discounts-icon1 pos-ab h20 w20 rds"></view>
+                <view class="bd-b dashed pos-ab"></view>
+            </view>
+            
+            <view class="h50 pd-l10 pd-r10 pd-b10 pd-t5">
+            <view class="fx fx-js-c pd10">
+                <view class="goto">立即领取</view>
+            </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 店长优选 -->
+    <view class="pd-l30 pd-r30 mg-t20 mg-b20">
+        <view class="bold">店长优选</view>
+        <view class="fx mg-t20">
+            <view class="wp30" wx:for="{{3}}">
+                <image class="wp100 rds10" mode="widthFix" src="{{goods[0].src}}"></image>
+                <view class="cut bold">{{goods[0].ttl}}</view>
+                <view class="fx">
+                    <view>
+                        <text class="ft34" style="color: #FD6D01;"><text class="ft28">￥</text>{{ goods[0].money }}</text>
+                        <text class="ft20" style='color: #666;text-decoration: line-through;'>￥{{goods[0].oldMoney}}</text>
+                    </view>
+                    <view class="fx fx-js-c w40 h40 rds" style="background-color: #FD6D01;">
+                        <van-icon class="w20 h20" name="plus" color='#fff' />
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 汉堡套餐 -->
+    <view class="pd-l30 pd-r30 mg-t20">
+        <view class="bold">汉堡套餐</view>
+    </view>
+</view>

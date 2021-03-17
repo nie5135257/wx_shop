@@ -1,0 +1,58 @@
+/* pages/main/main.wxss */
+.page{
+    font-size: 26rpx;
+}
+/* 轮播图 */
+swiper{
+    height: 298rpx;
+}
+
+/* list列表 */
+.list{
+    padding: 20rpx 40rpx;
+    font-size: 26rpx;
+}
+.list image{
+    width: 80rpx;
+}
+
+/* 优惠卷 */
+.discounts{
+    overflow: hidden;
+    width: 160rpx;
+}
+.discounts>view{
+    background-color: #FEB725;
+    color: #fff;
+}
+.discounts>.discounts-top{
+    padding: 20rpx 10rpx 25rpx;
+}
+.discounts .dashed{
+    width: 90%; 
+    left: 5%;
+    bottom: 0;
+}
+.discounts .goto{
+    text-align: center;
+    width: 5em;
+    height: 40rpx;
+    line-height: 40rpx;
+    border-radius: 40rpx;
+    background-image: linear-gradient(to right, #E3A864 , #B7762E);
+}
+.discounts .discounts-icon{
+    background-color: #fff;
+    bottom: 0rpx;
+    left: 0;
+    transform: translate(-50%,50%);
+    z-index: 100;
+}
+.discounts .discounts-icon1{
+    background-color: #fff;
+    bottom: 0rpx;
+    right: 0;
+    transform: translate(50%,50%);
+}
+
+

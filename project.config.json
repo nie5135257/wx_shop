@@ -10,7 +10,7 @@
         "minified": true,
         "newFeature": true,
         "coverView": true,
-        "nodeModules": false,
+        "nodeModules": true,
         "autoAudits": false,
         "showShadowRootInWxmlPanel": true,
         "scopeDataCheck": false,
@@ -21,6 +21,7 @@
         "compileHotReLoad": false,
         "useMultiFrameRuntime": true,
         "useApiHook": true,
+        "useApiHostProcess": true,
         "babelSetting": {
             "ignore": [],
             "disablePlugins": [],
@@ -32,37 +33,20 @@
         "useCompilerModule": true,
         "userConfirmedUseCompilerModuleSwitch": false,
         "userConfirmedBundleSwitch": false,
-        "packNpmManually": false,
-        "packNpmRelationList": [],
-        "minifyWXSS": true,
-        "useApiHostProcess": true
+        "packNpmManually": true,
+        "packNpmRelationList": [
+            {
+                "packageJsonPath": "./package.json",
+                "miniprogramNpmDistDir": "./miniprogram/"
+            }
+        ],
+        "minifyWXSS": true
     },
     "appid": "wx53e656be0649de88",
     "projectname": "shop",
     "libVersion": "2.14.1",
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
-    "condition": {
-        "search": {
-            "list": []
-        },
-        "conversation": {
-            "list": []
-        },
-        "plugin": {
-            "list": []
-        },
-        "game": {
-            "list": []
-        },
-        "miniprogram": {
-            "list": [
-                {
-                    "id": -1,
-                    "name": "db guide",
-                    "pathName": "pages/databaseGuide/databaseGuide"
-                }
-            ]
-        }
-    }
+    "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+    "condition": {}
 }

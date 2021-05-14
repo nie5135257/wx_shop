@@ -2899,6 +2899,9 @@ ul {
   text-align: justify!important;
   text-align-last: left!important;
 }
+.t-line{
+  text-decoration: line-through;
+}
 .bold {
   font-weight: bold!important;
 }
@@ -3861,8 +3864,8 @@ ul {
 [class^="split"] {
   position: relative;
 }
-[class*=" split"]:before,
-[class^="split"]:before {
+[class*=" split"]::before,
+[class^="split"]::before{
   content: "";
   display: block;
   position: absolute;
@@ -11746,4 +11749,19 @@ ul {
   width: 100%;
   height: 10rpx;
   background-color: #F2F2F2;
+}
+.brack3{
+  color: #333;
+}
+.brack6{
+  color: #666;
+}
+.brack9{
+  color: #999;
+}
+.van-stepper{
+  display: flex;
+}
+.white-bg{
+  background-color: #fff;
 }

@@ -1,6 +1,7 @@
 /* pages/main/main.wxss */
 .page{
     font-size: 26rpx;
+    padding-bottom: 20000rpx
 }
 /* 轮播图 */
 swiper{
@@ -54,5 +55,34 @@ swiper{
     right: 0;
     transform: translate(50%,50%);
 }
+
+
+/* 提交订单 */
+/* .van-submit-bar__bar .van-submit-bar__button{
+    width: var(--submit-bar-button-width,90px);
+}
+.van-button.van-button--round{
+    height: 60rpx;
+    line-height: 60rpx;
+} */
+
+.van-button--danger ,.van-info{
+    background-color: #FD3C01!important;
+    border-color: #FD3C01!important;
+}
+.van-submit-bar__price{
+    color: #FD3C01!important;
+}
+.van-submit-bar{
+    border-top: 1px solid #eeeeee;
+}
+.shop{
+    height: 100%;
+    overflow: auto;
+}
+.shop image{
+    width: 150rpx;
+}
+
 
 

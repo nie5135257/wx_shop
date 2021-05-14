@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-rate": "@vant/weapp/rate/index",
+    "card": "../../components/card",
+    "van-popup": "@vant/weapp/popup/index"
+  }
+}

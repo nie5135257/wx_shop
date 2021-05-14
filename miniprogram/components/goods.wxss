@@ -1,0 +1,12 @@
+/* components/goods.wxss */
+@import '../app.wxss';
+.goods{
+    width: 210rpx;
+}
+/* animation */
+.animation{
+    width: 210rpx!important;
+}
+.z-index{
+    z-index: 101;
+}

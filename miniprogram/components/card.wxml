@@ -1,0 +1,74 @@
+<!--components/card.wxml-->
+<!-- card -->
+<view class="my-card">
+    <view class="fx fx-js-s" style="align-items:stretch;"> 
+        <!-- left 图片 -->
+        <view class="left wp30 mg-t20 pos-re"  bindtap="toPath" >
+            <view>
+                <image class="wp100" style="width: 170rpx;" mode="widthFix" src="{{ data.src }}"></image>
+                <image 
+                    id='animation'
+                    class="animation {{isAn?'pos-fd z-index':'pos-ab'}} wp100"
+                    style="left:{{left}};top:{{top}};"
+                    animation="{{animation}}" 
+                    mode="widthFix" src="{{ data.src }}"
+                ></image>
+                <view class="tag {{isAn?'z-index':''}} pos-ab w26">{{ data.type }}</view>
+            </view>
+        </view>
+
+        <!-- right -->
+        <view class="fx fx-al-s fx-col pd-l20 wp70" style="align-items:stretch;">
+            <!-- 标题 and 商品描述 -->
+            <view bindtap="toPath">
+                <view class="bold cut">{{ data.ttl }}</view>
+                <view class="clip c2" style="color: #666">{{ data.text }}</view>
+            </view>
+            <!-- 底部 -->
+            <view class="fx fx-al-e wp100">
+                <view>
+                    <!-- 折扣 and 月售 -->
+                    <view class="brack6 pd-t5 pd-b5" bindtap="toPath">
+                        <text class="pd-l10 pd-r10 rds10 mg-r20 tc"  style="color: #EE4539;">{{ discount }}折 | {{ data.limitCount }}</text>
+                        <text>月售:{{ data.monthCounts }}</text>
+                    </view>
+                    <!-- 单价 and 原价 -->
+                    <view class="fx fx-js-s" bindtap="toPath">
+                        <view class="bold ft30 pd-r10" style="color: #EE4539;"> 
+                            <text class="ft26">￥</text> 
+                            <text>{{ money }}</text>
+                            <text class="ft26">.{{ money1 }}</text>
+                        </view> 
+                        <view class="bold ft20 t-line" style="color: #666;"> 
+                            <text class="ft16">￥</text> 
+                            <text>{{ oldMoney }}</text>
+                            <text class="ft16">.{{ oldMoney1 }}</text>
+                        </view>
+                    </view>
+                </view>
+                <view  >
+                    <!-- 按钮 -->
+                    <view bindtap="add1Fn" wx:if="{{data.count==0}}" class="fx fx-js-c w40 h40 rds tc" style="background-color: #FD6D01;">
+                        <van-icon class="w20 h20 bold" name="plus" color='#fff' />
+                    </view>
+                    <!-- 按钮组 加减 -->
+                    <view wx:else>
+                        <van-stepper 
+                        class="fx fx-js-c" 
+                        plus-class='add'
+                        minus-class='jian' 
+                        input-class='ipt' 
+                        min='0'
+                        value="{{ data.count }}" integer 
+                        input-width="60rpx" button-size="40rpx"
+                        bind:change='iptFn'
+                        bind:plus='addFn'
+                        bind:minus='jianFn'
+                        />
+                    </view>
+                </view>
+            
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,65 @@
+@import '../app.wxss';
+/* my-card */
+.my-card{
+    padding: 20rpx 40rpx;
+    background-color: #FAFAFA;
+}
+.my-card .left{
+    width: 200rpx;
+    position: relative;
+}
+.my-card .left .tag{
+    left: -10rpx;
+    top: 0;
+    background-color: #FC7307;
+    color: #fff;
+    padding: 5rpx 10rpx;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 0rpx;
+    border-bottom-left-radius: 0rpx;
+    border-bottom-right-radius: 20rpx;
+    transform: translate(0,-20%);
+}
+.my-card .left .tag::after{
+    content: ' ';
+    position: absolute;
+    width: 0rpx;
+    height: 0rpx;
+    left: 0;
+    bottom: 0rpx;
+    transform: translateY(100%);
+    border-top: 6rpx solid #DD6303;
+    border-left: 6rpx solid transparent;
+    border-right: 6rpx solid #DD6303;
+    border-bottom: 6rpx solid transparent;
+}
+.van-stepper{
+    display: flex;
+}
+.my-card .add{
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    background-color: #FD6D01;
+}
+.my-card .jian{
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    background-color: #FD6D01;
+}
+.my-card .ipt{
+    display: flex;
+    flex-direction: row;
+    width: 80rpx;
+    line-height: 40rpx;
+    align-items: center;
+}
+
+/* animation */
+.animation{
+    width: 166rpx!important;
+}
+.z-index{
+    z-index: 101;
+}

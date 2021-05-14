@@ -1,3 +1,7 @@
 {
-
+    "usingComponents": {
+        "card": "../../components/card",
+        "goods": "../../components/goods",
+        "van-popup": "@vant/weapp/popup/index"
+      }
 }

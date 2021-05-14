@@ -1,0 +1,154 @@
+<!--pages/info/info.wxml-->
+<view class="info">
+    <!-- img -->
+    <view class="topImg">
+        <image class="wp100" mode="top" src="{{good.src}}"></image>
+        <image 
+        id='animation'
+        class="animation rds10 {{isAn?'pos-fd z-index':'pos-ab'}} wp100" 
+        style="left:{{left}};top:{{top}};"
+        animation="{{animation}}"
+        mode="top" src="{{good.src}}"></image>
+    </view>
+
+    <!-- ttl -->
+    <view class="box mg20 rds16 white-bg pd20">
+        <view class="ttl bold">{{good.ttl}}</view>
+        <view class="ft24 mg-t20" style="color: #D8A363">本店畅销第{{good.order}}名</view>
+        <view class="ft24 mg-t20" style="color: #999">月售{{good.monthCounts}}</view>
+        <view class="ft24 rds5 discount mg-t20 tc" style="width: 80rpx;">4.8折</view>
+        <view class="fx mg-t20">
+            <view>
+                <text class="ft34 bold pd-r10" style="color: #EE4539;">
+                    <text class="ft28">￥</text>
+                    <text>{{ good.money }}</text>
+                    <text class="ft28">.00</text>
+                </text>
+                    <text class="ft20 bold" style='color: #666;text-decoration: line-through;'>
+                        <text class="ft16">￥</text>
+                        <text>{{ good.money }}</text>
+                        <text class="ft16">.00</text>
+                    </text>
+            </view>
+            <view  >
+                    <!-- 按钮 -->
+                    <view bindtap="add1Fn" wx:if="{{good.count==0}}" class="fx fx-js-c w40 h40 rds tc" style="background-color: #FD6D01;">
+                        <van-icon class="w20 h20 bold" name="plus" color='#fff' />
+                    </view>
+                    <!-- 按钮组 加减 -->
+                    <view wx:else>
+                        <van-stepper 
+                        class="fx fx-js-c" 
+                        plus-class="add"
+                        minus-class='jian'
+                        input-class='ipt'
+                        min='0'
+                        value="{{ good.count }}" integer 
+                        input-width="60rpx" button-size="40rpx"
+                        bind:change='iptFn'
+                        bind:plus='addFn'
+                        bind:minus='jianFn'
+                        />
+                    </view>
+                </view>
+        </view>
+    </view>
+
+    <!-- 详情 -->
+    <view class="box mg20">
+        <view class="fx fx-js-s ft26 bold pd20 mg-b5">
+            <view class="tc pd-l10 pd-r40 h30 lh30" bindtap="tabFn" data-index="0">
+                <view class="{{index==0?'icon_btm':''}}">详情</view>
+            </view>
+            <view class="pd-l10 pd-r10 h30 lh30"  bindtap="tabFn" data-index="1">
+                <view class="{{index==1?'icon_btm':''}}">
+                    <view>评价</view>
+                    <view class="icon">{{good.comment.length}}</view>
+                </view>
+            </view>
+        </view>
+        <view >
+            <!-- 详情 -->
+            <view wx:if="{{index==0}}" class="rds16 white-bg pd20">
+                <view class="fx fx-js-s ft24 h60 lh60">
+                    <view class="brack9 pd-r20">产品描述:</view>
+                    <view>{{good.text}}</view>
+                </view>
+                <view class="fx fx-js-s ft24 h60 lh60">
+                    <view class="brack9 pd-r20">类型:</view>
+                    <view>{{good.type}}</view>
+                </view>
+                <view class="fx fx-js-s ft24 h60 lh60">
+                    <view class="brack9 pd-r20">原料:</view>
+                    <view wx:for="{{good.element}}" wx:key='index'>{{item}}</view>
+                </view>
+                <view class="fx fx-js-s ft24 h60 lh60">
+                    <view class="brack9 pd-r20">剩余:</view>
+                    <view>{{good.limitCount}}</view>
+                </view>
+            </view>
+
+            <!-- 评价 -->
+            <view wx:else class="ft24">
+                <view wx:for="{{good.comment}}" wx:key='index' class="rds16 white-bg pd20 mg-b20">
+                    <view class="fx fx-al-s">
+                        <!-- 头像 姓名 vip -->
+                        <view class="fx fx-js-s">
+                            <image class="user" mode="widthFix" src="{{item.head}}"></image>
+                            <view>{{item.name}}</view>
+                            <view class="vip mg-l5">{{item.type}}</view>
+                        </view>
+                        <!-- 评价 -->
+                        <view class="tr">
+                            <van-rate
+                              readonly='{{true}}'
+                                value="{{ item.rate }}"
+                                icon="like"
+                                void-icon="like-o"
+                                bind:change="onChange"
+                                />
+                        </view>
+                    </view>
+                    <!-- 评价图片 -->
+                    <view class="fx fx-js-s fx-wp pd-l49" hidden="{{item.src.length==0}}">
+                        <image mode="widthFix" class="wp23 mg-t10 pd-r10" wx:for="{{item.src}}" wx:key='index' src='{{item}}'></image>
+                    </view>
+                    <!-- 评论内容 -->
+                    <view class="pd-l49 mg-t20">
+                        {{item.text}}
+                    </view>
+                    <!-- 时间 -->
+                    <view class="tr">{{item.time}}</view>
+                </view>
+                
+            </view>
+
+        </view>
+    </view>
+
+    <!-- 购物车内容 -->
+    <van-popup
+        show="{{ showShop }}"
+        round
+        position="bottom"
+        custom-style="height: 60%"
+        bind:close="onClose"
+    > 
+       <view class="pd-t20 shop">
+            <view style="padding-bottom: 200rpx;">
+                <!-- shop -->
+                <card wx:if="{{shop.data.count!=0}}" wx:for="{{shop.data}}" wx:key='index' data="{{item}}"  bind:countFn='countFn' ></card>
+            </view>
+       </view>
+    </van-popup>
+    
+    <!-- 底部购物结算 -->
+    <van-submit-bar
+    price="{{ shop.allMoney }}"
+    button-text="提交订单"
+    bind:submit="onClickButton"
+    tip="{{ true }}"
+    >
+        <van-icon bindtap="shopFn" type="primary" class="mg-l20" color="#64BAE8" size='25px' name="cart-o" info="{{shop.allCount}}" />
+    </van-submit-bar>
+</view>

@@ -5,7 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        index: 1,//tab索引值 0:详情 1:评价
+        index: 0,//tab索引值 0:详情 1:评价
         isAn: false,//是否开启动画
         left: 0, //动画初始化left
         top: 0, //动画初始化top
@@ -13,12 +13,7 @@ Page({
         good: {},//数据
 
         showShop: false,//是否显示购物车
-        shop: {
-            allMoney: 0,
-            allCount: 0,
-            type:{},
-            data: []
-        }
+        shop: {}
     },
     // tab切换
     tabFn(e){
@@ -67,7 +62,7 @@ Page({
     
     // 添加购物车
     countFn(e,obj){
-        
+        // 判断是否为 组件 添加购物车
         if(e==1){
             e = {
                 type: 1,
@@ -76,7 +71,7 @@ Page({
         }
         console.log(e.detail)
         // 添加购物车类型数据
-        let key = e.detail.data.id
+        let key = e.detail.data._id
         if(this.data.shop.type[key]){ 
             if(e.detail.count == 'add'){
                 this.data.shop.type[key][1] +=  1
@@ -86,7 +81,7 @@ Page({
             if(e.detail.count == 0 && this.data.shop.type[key][1] == 0){
                 for(let i = 0; i<this.data.shop.data.length; i++){
                     console.log(key)
-                    if(this.data.shop.data[i].id == key){
+                    if(this.data.shop.data[i]._id == key){
                       this.data.shop.data.splice(i,1);
                       break;
                     }
@@ -121,7 +116,7 @@ Page({
             this.data.good.count = e.detail.count
 
             for(let i = 0; i < this.data.shop.data.length; i++){
-                if(e.detail.data.id == this.data.shop.data[i].id && e.detail.count!=0){
+                if(e.detail.data._id == this.data.shop.data[i]._id && e.detail.count!=0){
                     console.log(this.data.shop.data[i])
                     this.data.shop.data[i].count = e.detail.count
                 }
@@ -197,9 +192,20 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let that = this
         let obj = JSON.parse(options.obj)
         this.setData({
             good: obj
+        })
+
+        const db_users = wx.cloud.database().collection('users')
+        db_users.doc(getApp().globalData._id).get({
+            success(res){
+                console.log(res)
+                that.setData({
+                    shop: res.data.shop
+                })
+            }
         })
     }
 

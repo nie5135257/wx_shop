@@ -77,22 +77,33 @@
             <view class="bold">店长优选</view>
             <view bindtap="toPath" class="fx fx-js-s brack6">更多<van-icon name="arrow" /></view>
         </view>
-        <view class="fx fx-js-s mg-t20">
-            <goods class="mg-r28" wx:for="{{goods}}" wx:key='index' data="{{item}}" path='/pages/info/info' bind:countFn='countFn' ></goods>
-        </view>
+        <scroll-view scroll-x="true" class="mg-t20">
+            <view class="fx fx-js-s">
+                <goods wx:if="{{item.kind.includes('店长优选')}}" class="mg-r15" wx:for="{{goods}}" wx:key='index' data="{{item}}" path='/pages/info/info' bind:countFn='countFn' ></goods>
+            </view>
+        </scroll-view>
     </view>
 
     <!-- 汉堡套餐 -->
-    <view class="pd-l30 pd-r30 mg-t40">
+    <view class="pd-l30 pd-r30 mg-t40"  wx:if="{{dataKey}}">
         <!-- top -->
-        <view class="fx">
+        <view class="fx mg-b10">
             <view class="bold">汉堡套餐</view>
             <view class="fx fx-js-s brack6">更多<van-icon name="arrow" /></view>
         </view>
         <!-- card -->
-        <card wx:for="{{goods}}" wx:key='index' data="{{item}}" path='/pages/info/info' bind:countFn='countFn' ></card>
+        <card wx:for="{{goods}}" wx:key='index' data="{{item}}" show='汉堡套餐' path='/pages/info/info' bind:countFn='countFn' ></card>
+    </view>
 
-         
+    <!-- 饮料 -->
+    <view class="pd-l30 pd-r30 mg-t40"  wx:if="{{dataKey}}">
+        <!-- top -->
+        <view class="fx mg-b10">
+            <view class="bold">饮料</view>
+            <view class="fx fx-js-s brack6">更多<van-icon name="arrow" /></view>
+        </view>
+        <!-- card -->
+        <card wx:for="{{goods}}" wx:key='index' data="{{item}}" show='饮料' path='/pages/info/info' bind:countFn='countFn' ></card>
     </view>
 
     <!-- 购物车内容 -->

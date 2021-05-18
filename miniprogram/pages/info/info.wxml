@@ -61,7 +61,7 @@
                 <view class="{{index==0?'icon_btm':''}}">详情</view>
             </view>
             <view class="pd-l10 pd-r10 h30 lh30"  bindtap="tabFn" data-index="1">
-                <view class="{{index==1?'icon_btm':''}}">
+                <view class="{{index==1?'icon_btm':''}}" style="position: relative">
                     <view>评价</view>
                     <view class="icon">{{good.comment.length}}</view>
                 </view>
@@ -84,7 +84,7 @@
                 </view>
                 <view class="fx fx-js-s ft24 h60 lh60">
                     <view class="brack9 pd-r20">剩余:</view>
-                    <view>{{good.limitCount}}</view>
+                    <view>{{good.limitCount}}份</view>
                 </view>
             </view>
 

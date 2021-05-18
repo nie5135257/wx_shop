@@ -13,6 +13,10 @@ Component({
             value: {
                 
             }
+        },
+        show: {
+            type: String,
+            value: ''
         }
     },
 
@@ -28,10 +32,23 @@ Component({
         count: 0,
         isAn: false,
         left: 0,
-        top: 0
+        top: 0,
+        isShow: true,
     },
     lifetimes: {
         attached: function() {
+            console.log(this.data.data.kind.includes(this.data.show))
+            if(this.data.data.kind.includes(this.data.show)){
+                console.log(777)
+                this.setData({
+                    isShow: true
+                })
+            }else{
+                this.setData({
+                    isShow: false
+                });
+                return;
+            }
             // 在组件实例进入页面节点树时执行
             var discount = (Number(this.data.data.money)/Number(this.data.data.oldMoney)*10).toFixed(2)
             var money = Number(this.data.data.money).toFixed(2)

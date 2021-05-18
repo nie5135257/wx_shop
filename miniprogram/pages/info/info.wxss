@@ -27,7 +27,7 @@
     transform: translate(0%,0);
     background-color: #04B5FB;
 }
-.icon_btm .icon{
+.icon{
     position: absolute;
     right: 0;
     top: 0;

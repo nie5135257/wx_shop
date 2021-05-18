@@ -2,26 +2,26 @@
 <!-- items -->
 <view class="goods">
     <view class="pos-re" bindtap="toPath">
-        <image class="wp100 rds10" mode="widthFix" src="{{data.src}}"></image>
+        <image class="rds10" style="width: 100px;height:75px;"  src="{{data.src}}"></image>
         <image 
         id='animation'
         class="animation rds10 {{isAn?'pos-fd z-index':'pos-ab'}} wp100" 
-        style="left:{{left}};top:{{top}};"
+        style="left:{{left}};top:{{top}};width: 100px;height:75px;"
         animation="{{animation}}" 
-        mode="widthFix" src="{{data.src}}"></image>
+        src="{{data.src}}"></image>
     </view>
     <view class="cut bold">{{data.ttl}}</view>
     <view class="fx">
         <view>
-            <text class="ft34 bold pd-r10" style="color: #EE4539;">
-                <text class="ft28">￥</text>
+            <text class="ft30 bold pd-r10" style="color: #EE4539;">
+                <text class="ft24">￥</text>
                 <text>{{ data.money }}</text>
-                <text class="ft28">.00</text>
+                <text class="ft24">.00</text>
             </text>
-                <text class="ft20 bold" style='color: #666;text-decoration: line-through;'>
-                    <text class="ft16">￥</text>
+                <text class="ft18 bold" style='color: #666;text-decoration: line-through;'>
+                    <text class="ft14">￥</text>
                     <text>{{ data.oldMoney }}</text>
-                    <text class="ft16">.00</text>
+                    <text class="ft14">.00</text>
                 </text>
         </view>
         <view class="fx fx-js-c w40 h40 rds tc" style="background-color: #FD6D01;" bindtap="addFn">

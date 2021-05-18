@@ -1342,6 +1342,9 @@ ul {
 .w99 {
   width: 99rpx !important;
 }
+.w100{
+  width: 100rpx !important;
+}
 .h99 {
   height: 99rpx !important;
 }
@@ -11764,4 +11767,7 @@ ul {
 }
 .white-bg{
   background-color: #fff;
+}
+.nowarp{
+  white-space: nowrap;
 }

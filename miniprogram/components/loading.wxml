@@ -1,0 +1,6 @@
+<!--components/loading.wxml-->
+<van-overlay show="{{ show }}" bind:click="onClickHide" >
+    <view class="wrapper">
+        <van-loading type="spinner" size="24px" color="#fff" vertical>加载中...</van-loading>
+    </view>
+</van-overlay>

@@ -76,5 +76,55 @@ App({
   },
   globalData: {
     userInfo: null
-  }
+  },
+  /**
+	 * 获取时间戳
+	 * @param {String} time 时间格式的字符串
+	 * @return {Number} 返回时间戳 (参数不错在则返回当前时间戳)
+	 */
+	getTime: function(time) {
+		if (!time)
+			return new Date().getTime()
+		else
+			return new Date(time).getTime()
+  },
+  /**
+	 * 获取日期格式
+	 * @param {Number,Strimg} time 时间戳||时间格式的字符串
+	 * @return {Object} 时间对象值
+	 */
+	getDate: function(time) {
+    var date;
+		if(!time)
+			date = this.getOffsetDate(8)
+		else
+			date = this.getOffsetDate(8, time)
+			
+		return {
+			yy: date.getFullYear(),
+			mm: date.getMonth() + 1>=10?date.getMonth() + 1:'0'+(date.getMonth() + 1),
+			dd: date.getDate()>=10?date.getDate():'0'+date.getDate(),
+			hh: date.getHours()>=10?date.getHours():'0'+date.getHours(),
+			mn: date.getMinutes()>=10?date.getMinutes():'0'+date.getMinutes(),
+			ss: date.getSeconds()>=10?date.getSeconds():'0'+date.getSeconds()
+		}
+	},
+	
+	/**
+	 * 获取偏移后的Date对象，例如utc+x时offset就传x
+	 * @param {Object} offset 时区
+	 * @param {Object} time 传入的时间值
+	 */
+	getOffsetDate: function(offset, time) {
+		if (time) {
+			return new Date(
+				(new Date(time).getTime()) + (new Date().getTimezoneOffset() + (offset || 0) * 60) * 60000
+			)
+		}else{
+			return new Date(
+				Date.now() + (new Date().getTimezoneOffset() + (offset || 0) * 60) * 60000
+			)
+		}
+		
+	}
 })

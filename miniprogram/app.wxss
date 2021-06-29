@@ -11718,7 +11718,7 @@ ul {
   align-items: center;
   justify-content: space-between;
 }
-.pos-fd-btm {
+.pos-f-btm {
   width: 100%;
   height: 60rpx;
   position: fixed;
@@ -11770,4 +11770,7 @@ ul {
 }
 .nowarp{
   white-space: nowrap;
+}
+.mg-c{
+  margin: 0 auto;
 }

@@ -1,0 +1,47 @@
+<!-- 订单页面 -->
+<view class="indent">
+    <view class="tabs tc wp90 mg-c pd-t20">
+        订单信息
+    </view>
+    <!-- 订单商品 -->
+    <view class="pd-t20 shop">
+        <view >
+            <!-- shop -->
+            <card wx:if="{{shop.data.count!=0}}" type='indent' show='all' wx:for="{{shop.data}}" wx:key='index' data="{{item}}" path='/pages/info/info' bind:countFn='countFn' ></card>
+        </view>
+        <view class="fx fx-js-e pd-l40 pd-r40 pd-b40 pd-t30 mg-b20" style="background-color: #FAFAFA;">
+            <!-- <view>合计 <text style="color:#EE4539;">x{{shop.allCount}}</text> 件</view> -->
+            <view></view>
+            <view>总计 
+                <text class="bold" style="color:#EE4539;">
+                    <text class="ft28">￥</text>
+                    <text class="ft32" >{{shop.allMoney/100}}</text> 
+                    <text class="ft28">.{{allMoneyFixed}}</text>
+                </text>
+            元</view>
+        </view>
+    </view>
+    <!-- 订单信息 -->
+    <view class="pd-l40 pd-r40 ft24">
+        <view class="fx">
+            <view>订单编号：</view>
+            <view>{{code}} <text class="blue" style="color:#EE4539" bindtap="copy">复制</text></view>
+        </view>
+        <view class="fx pd-t15 pd-b15">
+            <view>支付方式：</view>
+            <view>在线支付</view>
+        </view>
+        <view class="fx">
+            <view>创建时间：</view>
+            <view>{{createTime}}</view>
+        </view>
+    </view>
+
+    <!-- 底部按钮 -->
+    <view class="pos-f-btm fx-js-sb pd-r20 pd-l20" style="box-sizing: border-box; height:100rpx">
+        <view class="wp30 btn tc h80" style="line-height: 80rpx;background-color: #f2f2f2;color: #666;" bindtap="cancel">取消</view>
+        <view class="btn wp68  tc h80" style="line-height: 80rpx;background-color:#FD3C01" bindtap="submit">确认支付</view>
+    </view>
+
+    <loading show='{{show_loading}}' ></loading>
+</view>

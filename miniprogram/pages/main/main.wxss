@@ -12,6 +12,7 @@ swiper{
 .list{
     padding: 20rpx 40rpx;
     font-size: 26rpx;
+    
 }
 .list image{
     width: 80rpx;

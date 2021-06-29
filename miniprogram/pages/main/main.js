@@ -60,16 +60,6 @@ Page({
                         name: '匿名用户',
                         type: 'vip',
                         time: '2020-1-31 21:19',
-                        rate: 3,//是否点赞
-                        text: '啊啊啊啊',//评论内容
-                        src: [//图片
-                        ]
-                    },
-                    {
-                        head: 'cloud://test-shop-4gobl4tb3c799836.7465-test-shop-4gobl4tb3c799836-1305182803/user.png',//头像
-                        name: '匿名用户',
-                        type: 'vip',
-                        time: '2020-1-31 21:19',
                         rate: 5,//是否点赞
                         text: '啊啊啊啊',//评论内容
                         src: [//图片
@@ -77,42 +67,6 @@ Page({
                             'cloud://test-shop-4gobl4tb3c799836.7465-test-shop-4gobl4tb3c799836-1305182803/user.png'
                         ]
                     }
-                ]
-            },
-            {
-                _id: 'id2',//
-                ttl: 'id2',//
-                src: 'cloud://test-shop-4gobl4tb3c799836.7465-test-shop-4gobl4tb3c799836-1305182803/shop/t1.jpg',
-                type: '招牌',//类型
-                order: 3,//本店畅销第3名
-                monthCounts: '888',//月销量
-                goodRate: '100',//好评率
-                money: '2',//打折后价格
-                oldMoney: '3',//标价
-                discount: '2.56',//打折（2.56折）
-                limitCount: '限一份',//限量 剩余3份
-                packaging: '1',//包装费
-                text: '为回馈广大新老客户，特推出特惠套餐',//商品描述
-                element: ['鸡肉'],//原料
-                comment: [ //评论
-                ]
-            },
-            {
-                _id: 'id3',//
-                ttl: 'id3',//
-                src: 'cloud://test-shop-4gobl4tb3c799836.7465-test-shop-4gobl4tb3c799836-1305182803/shop/t1.jpg',
-                type: '招牌',//类型
-                order: 3,//本店畅销第3名
-                monthCounts: '888',//月销量
-                goodRate: '100',//好评率
-                money: '2',//打折后价格
-                oldMoney: '3',//标价
-                discount: '2.56',//打折（2.56折）
-                limitCount: '限一份',//限量 剩余3份
-                packaging: '1',//包装费
-                text: '为回馈广大新老客户，特推出特惠套餐',//商品描述
-                element: ['鸡肉'],//原料
-                comment: [ //评论
                 ]
             }
         ],
@@ -122,7 +76,7 @@ Page({
     },
     // 显示购物车
     shopFn: function(){
-        console.log(7777)
+        console.log(this.data.shop)
         this.setData({
             showShop: true
         })
@@ -212,12 +166,11 @@ Page({
 
     // 提交按钮
     onClickButton: function(){
-        console.log(22222)
-        this.data.goods[0].count = 3
-        this.setData({
-            goods: this.data.goods
+        wx.navigateTo({
+          url: '/pages/indent/indent'
         })
     },
+    // 店长优选更多
     toPath(){
         console.log(11111111)
     },
@@ -238,12 +191,10 @@ Page({
              // 初始化完成
             if(getApp().globalData._id){
                 clearInterval(timer)
-                console.log(getApp().globalData)
 
                 // 轮播图赋值
                 db_carousel.get({
                     success(res){
-                        console.log(res)
                         that.setData({
                             bgSrc: res.data
                         })
@@ -282,7 +233,6 @@ Page({
                                 that.setData({
                                     goods: that.data.goods
                                 })
-
                             }
                         });
 

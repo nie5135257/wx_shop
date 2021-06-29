@@ -1,0 +1,38 @@
+/* pages/indent/res.wxss */
+/* pages/farm/dingDanRes.wxss */
+
+.dingDanRes{
+  color: #333;
+  font-size: 28rpx;
+}
+.box{
+  width: 350rpx;
+  margin: 100rpx auto;
+  text-align: center;
+}
+.img{
+  width: 262rpx;
+  margin-bottom: 40rpx;
+}
+.items{
+  padding: 0 80rpx;
+  line-height: 60rpx;
+}
+.pos-f-btm{
+  align-items: flex-start;
+}
+.nie-btn{
+  width: 35%;
+  border-radius: 40rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.nie-btn:nth-of-type(1){
+  background-image: linear-gradient(to right, #24D54E , #2DBC59);
+}
+.nie-btn-top{
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #D0D0D0;
+  box-sizing: border-box;
+}

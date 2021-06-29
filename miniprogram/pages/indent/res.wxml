@@ -1,0 +1,16 @@
+<!--pages/indent/res.wxml-->
+<view class="dingDanRes">
+    <view class="box">
+        <image src="/images/res-{{pageFlag?'ok':'no'}}.png" class="img" mode="widthFix"></image>
+        <view>{{pageFlag?'恭喜您，本次交易支付成功!':'支付失败，获取金额失败!'}}</view>
+    </view>
+    <view class="items">
+        <view class="item">订单编号：505236</view>
+        <view class="item">下单时间：2020-09-21 13:44:31</view>
+    </view>
+    <!-- 底部按钮 -->
+    <view class="pos-f-btm fx-js-sa pd-r40 pd-l40 mg-l20 mg-r20" style="box-sizing: border-box; height:100rpx">
+        <view class="wp40 rds10 btn tc h80" style="line-height: 80rpx;background-color: #f2f2f2;color: #666;" bindtap="tolist">查看订单</view>
+        <view class="btn wp40  rds10 tc h80" style="line-height: 80rpx;background-color:#33D358;" bindtap="toMain">返回首页</view>
+    </view>
+</view>

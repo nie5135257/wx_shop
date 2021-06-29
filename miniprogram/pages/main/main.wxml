@@ -1,5 +1,5 @@
+<!-- 首页 -->
 <view class="page" id='page'>
-
     <!-- 轮播图 -->
     <swiper indicator-dots="{{true}}"
         indicator-color=''
@@ -117,7 +117,7 @@
        <view class="pd-t20 shop">
             <view style="padding-bottom: 200rpx;">
                 <!-- shop -->
-                <card wx:if="{{shop.data.count!=0}}" wx:for="{{shop.data}}" wx:key='index' data="{{item}}" path='/pages/info/info' bind:countFn='countFn' ></card>
+                <card wx:if="{{shop.data.count!=0}}" show='all' wx:for="{{shop.data}}" wx:key='index' data="{{item}}" path='/pages/info/info' bind:countFn='countFn' ></card>
             </view>
        </view>
     </van-popup>

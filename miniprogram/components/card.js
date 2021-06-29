@@ -10,13 +10,15 @@ Component({
         },
         data: { //标题
             type: Object,
-            value: {
-                
-            }
+            value: {}
         },
         show: {
             type: String,
             value: ''
+        },
+        type: {
+            type: String,
+            value: 'shop'
         }
     },
 
@@ -37,9 +39,11 @@ Component({
     },
     lifetimes: {
         attached: function() {
-            console.log(this.data.data.kind.includes(this.data.show))
             if(this.data.data.kind.includes(this.data.show)){
-                console.log(777)
+                this.setData({
+                    isShow: true
+                })
+            }else if(this.data.show=='all'){
                 this.setData({
                     isShow: true
                 })
@@ -123,6 +127,8 @@ Component({
 
         },
         toPath(){
+            if(this.data.type == 'indent')
+                return
             wx.navigateTo({
                 url: this.data.path+'?obj=' + JSON.stringify(this.data.data)
             });

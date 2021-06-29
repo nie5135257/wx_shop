@@ -17,6 +17,23 @@
                     "name": "db guide",
                     "pathName": "pages/databaseGuide/databaseGuide",
                     "query": ""
+                },
+                {
+                    "name": "pages/indent/indent",
+                    "pathName": "pages/indent/indent",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/indent/res",
+                    "pathName": "pages/indent/res",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/indent/res",
+                    "pathName": "pages/indent/res",
+                    "scene": null
                 }
             ]
         }

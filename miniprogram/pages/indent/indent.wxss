@@ -1,0 +1,10 @@
+/* pages/indent/indent.wxss */
+.indent{
+    font-size: 13px;
+}
+.tabs{
+    width: 80%;
+}
+.mask {
+	background: rgba(0, 0, 0, 0.5);
+}

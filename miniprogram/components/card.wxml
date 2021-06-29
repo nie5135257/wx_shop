@@ -33,15 +33,15 @@
                     </view>
                     
                 </view>
-                <view class="fx">
+                <view class="fx {{type=='indent'?'fx-row-rev':''}}">
                     <!-- 单价 and 原价 -->
                     <view class="fx fx-js-s" bindtap="toPath">
-                        <view class="bold ft30 pd-r10" style="color: #EE4539;"> 
+                        <view class="bold ft30 pd-r10 " style="color: #EE4539;"> 
                             <text class="ft26">￥</text> 
                             <text>{{ money }}</text>
                             <text class="ft26">.{{ money1 }}</text>
                         </view> 
-                        <view class="bold ft20 t-line" style="color: #666;"> 
+                        <view class="bold ft20 t-line {{type=='indent'?'none':''}}" style="color: #666;"> 
                             <text class="ft16">￥</text> 
                             <text>{{ oldMoney }}</text>
                             <text class="ft16">.{{ oldMoney1 }}</text>
@@ -53,9 +53,10 @@
                             <van-icon class="w20 h20 bold" name="plus" color='#fff' />
                         </view>
                         <!-- 按钮组 加减 -->
+                       
                         <view wx:else>
                             <van-stepper 
-                            class="fx fx-js-c" 
+                            class="fx fx-js-c {{type=='indent'?'none':''}}" 
                             plus-class='add'
                             minus-class='jian' 
                             input-class='ipt' 
@@ -65,7 +66,8 @@
                             bind:change='iptFn'
                             bind:plus='addFn'
                             bind:minus='jianFn'
-                            />
+                            ></van-stepper>
+                            <view style="color: #EE4539;" class="{{type=='indent'?'block pd-l10':'none'}}"><van-icon name="cross pos-r pos-t5" size='10'></van-icon>{{ data.count }}</view>
                         </view>
                     </view>
                 </view>

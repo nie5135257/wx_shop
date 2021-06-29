@@ -1,4 +1,4 @@
-<!--pages/info/info.wxml-->
+<!-- 商品详情页面 -->
 <view class="info">
     <!-- img -->
     <view class="topImg">

@@ -2,6 +2,8 @@
   "pages": [
     "pages/main/main",
     "pages/info/info",
+    "pages/indent/indent",
+    "pages/indent/res",
     "pages/shop/shop",
     "pages/list/list",
     "pages/my/my"
